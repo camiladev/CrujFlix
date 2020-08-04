@@ -9,6 +9,7 @@ import categoriasRepository from '../../repositories/categorias';
 
 function Home(){
     const [dadosIniciais, setDadosIniciais] = useState([]);
+    
 
         useEffect(() => {
             // http://localhost:8080/categorias?_embed=videos
