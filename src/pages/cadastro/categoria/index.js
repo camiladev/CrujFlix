@@ -7,6 +7,8 @@ import useForm from '../../../hooks/useForm';
 
 import styled from 'styled-components';
 
+import categoriasRepository from '../../../repositories/categorias';
+
 const WrapperLineForm = styled.table`
   /* wrapper-line-form */
   position: relative;
@@ -57,16 +59,15 @@ color: #F5F5F5;
 
 `;
 
-const WrapperTbody = styled.tbody`
-   
+
+
+const WrapperDiv = styled.div`     
     
-    background: purple;
+    padding-top: 30px;
+`;
+const WrapperTbody = styled.tbody`  
+
     padding-top: 50px;
-
-    
-    /* border: 4px solid #2A7AE4; */ 
-
-
 `;
 const WrapperTbodyTr = styled.tr`
      /* Nome cabeçalho*/
@@ -75,19 +76,11 @@ const WrapperTbodyTr = styled.tr`
   height: auto;
   top: 25px;
 
-
-
     /* identical to box height */
 
     display:grid;
     grid-template-columns: 20% 55% 15%;
     align-items: center;
-
-/* --color-gray-light */
-
-
-
-
 `;
 
 const WrapperLineThead = styled.th`
@@ -139,21 +132,16 @@ function CadastroCategoria() {
   // ============
 
   useEffect(() => {
-    if(window.location.href.includes('localhost')) {
-      const URL = 'http://localhost:8080/categorias';
-      //'https://mamaflix.herokuapp.com/categorias'; 
-      //ou http://localhost:8080/categorias maquina local
-      fetch(URL)
-       .then(async (respostaDoServer) =>{
-        if(respostaDoServer.ok) {
-          const resposta = await respostaDoServer.json();
-          setCategorias(resposta);
-          return; 
-        }
-        throw new Error('Não foi possível pegar os dados');
-       })
-    }    
-  }, []);
+    categoriasRepository.getAllWithVideos()
+    .then((categoriasLista) => {
+        console.log(categoriasLista[0]);
+        setCategorias(categoriasLista);
+    })
+    .catch((err) => {
+        console.log(err.message);
+    });
+}, []);
+
 
   return (
     <PageDefault>
@@ -215,20 +203,26 @@ function CadastroCategoria() {
               <th>Cor</th>
             </WrapperTrThead>
           </WrapperThead>
-          
             <WrapperTbody>
-
+          
+          <WrapperDiv>
               {
                 categorias.map( function(categorias) {
                   return (
-                    <WrapperTbodyTr key={categorias.id}>
-                      <WrapperContent>{categorias.titulo}</WrapperContent>
-                      <WrapperContent>{categorias.descricao}</WrapperContent>
-                      <WrapperContent>{categorias.cor}</WrapperContent>
-                    </WrapperTbodyTr>
+                    
+                      <WrapperTbodyTr key={categorias.id}>
+                        <WrapperContent>{categorias.titulo}</WrapperContent>
+                        <WrapperContent>{categorias.descricao}</WrapperContent>
+                        <WrapperContent>{categorias.cor}</WrapperContent>
+                      </WrapperTbodyTr>
+
+                   
                   );
                 } )
               }
+            
+          </WrapperDiv>
+
             </WrapperTbody>
         </WrapperLineForm>
       </>
