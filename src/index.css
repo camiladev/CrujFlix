@@ -28,6 +28,8 @@ a {
 
 #root {
   min-height: calc(100vh - var(--bodyPaddingTop));
+  background-color: var(--black);
   display: flex;
   flex-direction: column;
+  align-items: center;
 }

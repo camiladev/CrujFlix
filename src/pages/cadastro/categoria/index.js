@@ -5,7 +5,7 @@ import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
 
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 import categoriasRepository from '../../../repositories/categorias';
 
@@ -83,30 +83,11 @@ const WrapperTbodyTr = styled.tr`
     align-items: center;
 `;
 
-const WrapperLineThead = styled.th`
 
-/* titulo das colunas */
-  width: 185px;
-  height: 41px;
- 
-  /* @title-small */
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.5em;
-  line-height: 41px;
-
-
-`;
 
 const WrapperContent = styled.td`
 
 /* titulo das colunas */
-
-
- 
-  /* @title-small */
 
   font-family: Roboto;
   font-style: normal;
@@ -115,7 +96,20 @@ const WrapperContent = styled.td`
   line-height: 20px;
   margin-bottom: 5px;
 
+
 `;
+
+const BackColor = styled.div`
+  width: 30px;
+  height: 20px;
+  
+
+  ${({ backItem }) => css `
+      background: ${backItem};
+    `}
+
+`;
+
 
 
 function CadastroCategoria() {
@@ -190,6 +184,7 @@ function CadastroCategoria() {
       </form>
 
 
+  
 
 
 
@@ -213,7 +208,9 @@ function CadastroCategoria() {
                       <WrapperTbodyTr key={categorias.id}>
                         <WrapperContent>{categorias.titulo}</WrapperContent>
                         <WrapperContent>{categorias.descricao}</WrapperContent>
-                        <WrapperContent>{categorias.cor}</WrapperContent>
+                        <WrapperContent>
+                            <BackColor backItem={categorias.cor}></BackColor>
+                        </WrapperContent>
                       </WrapperTbodyTr>
 
                    
