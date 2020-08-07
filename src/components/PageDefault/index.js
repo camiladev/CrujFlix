@@ -10,7 +10,7 @@ const Main = styled.main`
     padding-top: 50px;
     padding-left: 5%;
     padding-right: 5%;
-    width: 50%; /*mobile 100% descktop 50% */
+    width: 100%; /*mobile 100% descktop 50% */
 
     @media(max-width: 800px){
         width: 100%;
@@ -20,14 +20,18 @@ const Main = styled.main`
         padding: ${paddingAll};
     `}
 
+    ${({ widthForm }) => css `
+        width: ${widthForm}%;
+    `}
+
     
 `;
 
-function PageDefault({ children, paddingAll}) {
+function PageDefault({ children, paddingAll, widthForm}) {
     return (
         <>
             <Menu />
-                <Main paddingAll = {paddingAll}>
+                <Main paddingAll = {paddingAll} widthForm= {widthForm} >
                     {children}
                 </Main>
                 

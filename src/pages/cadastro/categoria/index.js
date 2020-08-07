@@ -138,7 +138,7 @@ function CadastroCategoria() {
 
 
   return (
-    <PageDefault>
+    <PageDefault widthForm = {50}>
       <h1>
         Cadastro Categoria: {values.nome}
       </h1>

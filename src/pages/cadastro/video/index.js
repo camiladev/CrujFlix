@@ -27,26 +27,42 @@ function CadastroVideo() {
   }, []);
 
   return (
-    <PageDefault>
+    <PageDefault widthForm={50}>
       <h1>Cadastro de Video</h1>
 
       <form onSubmit={(event) => {
         event.preventDefault();
         // alert('Video Cadastrado com sucesso!!!1!');
-
+        var verifica = null;
         const categoriaEscolhida = categorias.find((categoria) => {
-          return categoria.titulo === values.categoria;
+          console.log('Categoria escolhida',values.categoria );
+          verifica = categoria.titulo === values.categoria;
+          console.log('Categoria selecionada existe?',verifica)
+
+          return verifica;
         });
 
-        videosRepository.create({
-          titulo: values.titulo,
-          url: values.url,
-          categoriaId: categoriaEscolhida.id,
-        })
-          .then(() => {
-            console.log('Cadastrou com sucesso!');
-            history.push('/');
-          });
+        console.log('Verifica!', verifica);
+        if (verifica === true){
+              videosRepository.create({
+                titulo: values.titulo,
+                url: values.url,
+                categoriaId: categoriaEscolhida.id,
+              })
+                .then(() => {
+                  console.log('Cadastrou com sucesso!');
+                  history.push('/');
+                })
+                .catch((err) => {
+                  console.log('Não cadastrou');
+                  console.log(err.message);
+              });
+
+        }else{
+          console.log('Categoria não cadastrada');
+          alert('Vídeo não cadastrado, pois categoria não existe!');
+        };
+          
       }}
       >
         <FormField
@@ -71,7 +87,7 @@ function CadastroVideo() {
           suggestions={categoryTitles}
         />
 
-        <Button type="submit">
+        <Button type="submit" className="ButtonLink">
           Cadastrar
         </Button>
       </form>
