@@ -7,6 +7,7 @@ import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import videosRepository from '../../../repositories/videos';
 import categoriasRepository from '../../../repositories/categorias';
+import ButtonForm from '../../../components/Button/buttonForm';
 
 function CadastroVideo() {
   const history = useHistory();
@@ -27,7 +28,7 @@ function CadastroVideo() {
   }, []);
 
   return (
-    <PageDefault widthForm={50}>
+    <PageDefault widthForm={50} disabletag={"none"}>
       <h1>Cadastro de Video</h1>
 
       <form onSubmit={(event) => {
@@ -87,17 +88,17 @@ function CadastroVideo() {
           suggestions={categoryTitles}
         />
 
-        <Button type="submit" className="ButtonLink">
+        <ButtonForm type="submit">
           Cadastrar
-        </Button>
+        </ButtonForm>
       </form>
 
       <br />
       <br />
 
-      <Link to="/cadastro/categoria">
+      <Button as={Link} to="/cadastro/categoria">
         Cadastrar Categoria
-      </Link>
+      </Button>
     </PageDefault>
   );
 }

@@ -5,14 +5,15 @@ import './menu.css';
 import Button from '../Button';
 
 
-function Menu() {
+
+function Menu({disabletag}) {
     return(
         <nav className="Menu">
             <Link to="/">
                 <img className="Logo" src={Logo} alt="MamaFlix Logo" />
             </Link>
 
-            <Button as={Link} className="ButtonLink" to="/cadastro/video">
+            <Button disabletag={disabletag} as={Link} className="ButtonLink" to="/cadastro/video">
                 Novo vídeo
             </Button>
 

@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
 
-const Button = styled.button`
+const ButtonForm = styled.button`
     color: var(--white);
     border: 1px solid var(--white);
     background-color: black;
@@ -22,20 +22,12 @@ const Button = styled.button`
     }
 
     @media (max-width: 800px) {    
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--primary);
-      border-radius: 0;
-      border: 0;
+      
       text-align: center;
     }
 
-    ${({disabletag}) => css`
-        display: ${disabletag};
-    `};
+  
     
 `;
 
-export default Button;
+export default ButtonForm;
