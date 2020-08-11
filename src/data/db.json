@@ -40,6 +40,21 @@
         "text": "Formação de Jogos na Alura",
         "url": "https://www.alura.com.br/cursos-online-front-end"
       }
+    },
+    {
+      "titulo": "Teste",
+      "cor": "#356f16",
+      "text": "Descrição teste",
+      "id": 6
+    },
+    {
+      "titulo": "Teste2",
+      "cor": "#d62e2e",
+      "link_extra": {
+        "text": "Descrição teste2",
+        "url": ""
+      },
+      "id": 7
     }
   ],
   "videos": [

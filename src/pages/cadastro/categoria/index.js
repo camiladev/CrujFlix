@@ -53,7 +53,19 @@ function CadastroCategoria() {
         ]);
 
         clearForm();
+        //Cadastra categoria
+        categoriasRepository.create({
+          titulo: values.nome,
+          cor: values.cor,
+          link_extra: {
+            text: values.descricao,
+            url:"",
+
+          }
+
+        });
       }}
+
       >
         <FormField
           label="Nome da Categoria "
@@ -92,6 +104,7 @@ function CadastroCategoria() {
             <th>Nome</th>
             <th>Descrição</th>
             <th>Cor</th>
+            <th></th>
           </WrapperTrThead>
         </WrapperThead>
           <WrapperTbody>
@@ -107,6 +120,7 @@ function CadastroCategoria() {
                           <WrapperContent>
                               <BackColor backItem={categorias.cor}></BackColor>
                           </WrapperContent>
+                          <WrapperContent>Excluir</WrapperContent>
                         </WrapperTbodyTr>
 
                     

@@ -41,7 +41,7 @@ const WrapperTrThead = styled.tr`
     /* identical to box height */
 
     display:grid;
-    grid-template-columns: 20% 50% 15%;
+    grid-template-columns: 20% 50% 15% 15%;
     align-items: center;
 
 /* --color-gray-light */
@@ -71,7 +71,7 @@ const WrapperTbodyTr = styled.tr`
     /* identical to box height */
 
     display:grid;
-    grid-template-columns: 20% 55% 15%;
+    grid-template-columns: 20% 55% 15% 15%;
     align-items: center;
 `;
 
