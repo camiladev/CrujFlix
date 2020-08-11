@@ -27,7 +27,7 @@ function CadastroCategoria() {
   // ============
 
   useEffect(() => {
-    categoriasRepository.getAllWithVideos()
+    categoriasRepository.getAll()
     .then((categoriasLista) => {
         console.log(categoriasLista[0]);
         setCategorias(categoriasLista);
@@ -47,12 +47,7 @@ function CadastroCategoria() {
       <form onSubmit={function handleSubmit(infosDoEvento) {
         infosDoEvento.preventDefault();
 
-        setCategorias([
-          ...categorias,
-          values,
-        ]);
-
-        clearForm();
+        
         //Cadastra categoria
         categoriasRepository.create({
           titulo: values.nome,
@@ -60,10 +55,21 @@ function CadastroCategoria() {
           link_extra: {
             text: values.descricao,
             url:"",
-
+            
           }
-
+          
         });
+        
+        clearForm();
+        //atualiza lista
+        categoriasRepository.getAll()
+          .then((categoriasLista) => {
+              setCategorias(categoriasLista);
+              //console.log("Apos cadastrar",...categorias);
+          })
+          .catch((err) => {
+              console.log(err.message);
+          });
       }}
 
       >
