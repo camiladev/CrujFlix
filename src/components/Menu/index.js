@@ -6,14 +6,14 @@ import Button from '../Button';
 
 
 
-function Menu({disabletag}) {
+function Menu({disabletag,buttonMenuW, buttonMenuL}) {
     return(
         <nav className="Menu">
             <Link to="/">
                 <img className="Logo" src={Logo} alt="MamaFlix Logo" />
             </Link>
 
-            <Button disabletag={disabletag} as={Link} className="ButtonLink" to="/cadastro/video">
+            <Button disabletag={disabletag} buttonMenuW={buttonMenuW} buttonMenuL={buttonMenuL} as={Link} className="ButtonLink" to="/cadastro/video">
                 Novo vídeo
             </Button>
 

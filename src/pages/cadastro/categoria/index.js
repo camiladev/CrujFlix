@@ -39,7 +39,7 @@ function CadastroCategoria() {
 
 
   return (
-    <PageDefault widthForm = {50}>
+    <PageDefault widthForm = {50} buttonMenuW = {50} buttonMenuL = {'auto'} >
       <h1>
         Cadastro Categoria: {values.nome}
       </h1>
@@ -79,7 +79,7 @@ function CadastroCategoria() {
           onChange={handleChange}
         />
 
-        <Button>
+        <Button buttonTwo ={50}>
           Cadastrar
         </Button>
       </form>

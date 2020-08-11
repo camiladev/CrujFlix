@@ -27,10 +27,10 @@ const Main = styled.main`
     
 `;
 
-function PageDefault({ children, paddingAll, widthForm, disabletag}) {
+function PageDefault({ children, paddingAll, widthForm, disabletag, buttonMenuW, buttonMenuL}) {
     return (
         <>
-            <Menu disabletag = {disabletag}></Menu>
+            <Menu disabletag = {disabletag} buttonMenuW={buttonMenuW} buttonMenuL={buttonMenuL}></Menu>
                 <Main paddingAll = {paddingAll} widthForm= {widthForm} >
                     {children}
                 </Main>

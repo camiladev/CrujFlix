@@ -35,6 +35,21 @@ const Button = styled.button`
     ${({disabletag}) => css`
         display: ${disabletag};
     `};
+
+    ${({buttonTwo})=> css`
+        @media (max-width: 800px){
+            width: ${buttonTwo}%;
+        }
+    
+    `};
+
+    ${({buttonMenuW, buttonMenuL}) => css`
+        @media (max-width: 800px){
+            left: ${buttonMenuL};
+            width: ${buttonMenuW}%;
+        }
+    
+    `};
     
 `;
 
