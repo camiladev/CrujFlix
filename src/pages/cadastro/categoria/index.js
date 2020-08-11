@@ -12,6 +12,13 @@ import {WrapperLineForm, WrapperThead,
 WrapperTrThead, WrapperDiv, WrapperTbody, 
 WrapperTbodyTr, WrapperContent, BackColor} from '../../../components/Table';
 
+function Deleta(key){
+  console.log("Clicado: ", key);
+  var button = document.querySelector("button");
+  button.addEventListener("click", function() {
+    console.log("Button clicked.");
+  });
+};
 
 function CadastroCategoria() {
   const valoresIniciais = {
@@ -19,6 +26,7 @@ function CadastroCategoria() {
     descricao: '',
     cor: '',
   };
+
 
   const { handleChange, values, clearForm} = useForm(valoresIniciais);
   const [categorias, setCategorias] = useState([]);
@@ -126,7 +134,9 @@ function CadastroCategoria() {
                           <WrapperContent>
                               <BackColor backItem={categorias.cor}></BackColor>
                           </WrapperContent>
-                          <WrapperContent>Excluir</WrapperContent>
+                          <WrapperContent>
+                              <button type="button" onClick={Deleta()}>Excluir</button>
+                          </WrapperContent>
                         </WrapperTbodyTr>
 
                     

@@ -26,13 +26,13 @@ function getAllWithVideos() {
     });
 }
 
-function create(objetoDoVideo) {
+function create(objetoDaCategoria) {
   return fetch(`${URL_CATEGORIES}?_embed=videos`, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
     },
-    body: JSON.stringify(objetoDoVideo),
+    body: JSON.stringify(objetoDaCategoria),
   })
     .then(async (respostaDoServidor) => {
       if (respostaDoServidor.ok) {
